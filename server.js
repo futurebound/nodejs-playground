@@ -5,15 +5,19 @@
   404.html should display any time the user tries to go to a page not listed above.
 */
 
+import dotenv from 'dotenv'
+
 import http from 'http'
 import { createServer } from 'node:http'
 
-const PORT = 8080
+dotenv.config()
+
+const PORT = process.env.PORT
 
 const server = http.createServer((req, res) => {
-  res.setHeader('Content-Type', 'text/html')
-  res.statusCode = 404
-  res.writeHead()
+  // res.setHeader('Content-Type', 'text/html')
+  // res.statusCode = 404
+  res.writeHead(500, { 'Content-Type': 'text/plain' })
   res.end('<h1>Hello World</h1>')
 })
 
