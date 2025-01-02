@@ -6,9 +6,11 @@
 */
 import { createServer } from 'node:http'
 
+import { getPosts } from './posts.js'
+
 const server = createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' })
   res.end('Hello World')
 })
 
-console.log('howdy')
+console.log(getPosts())
