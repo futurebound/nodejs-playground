@@ -27,15 +27,12 @@ const server = http.createServer(async (req, res) => {
       let filePath
       if (req.url === '/') {
         filePath = path.join(__dirname, 'public', 'index.html')
-        // res.writeHead(200, { 'Content-Type': 'text/html' })
-        // res.end('<h1>Home</h1>')
       } else if (req.url === '/about') {
         filePath = path.join(__dirname, 'public', 'about.html')
-        // res.writeHead(200, { 'Content-Type': 'text/html' })
-        // res.end('<h1>About</h1>')
+      } else if (req.url === '/contact') {
+        filePath = path.join(__dirname, 'public', 'contact.html')
       } else {
-        res.writeHead(404, { 'Content-Type': 'text/html' })
-        res.end('<h1>404: Not Found</h1>')
+        filePath = path.join(__dirname, 'public', '404.html')
       }
 
       const data = await fs.readFile(filePath)
