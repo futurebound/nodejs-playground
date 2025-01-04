@@ -6,8 +6,13 @@ const app = express()
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
+const links = [
+  { href: '/', text: 'Home' },
+  { href: 'about', text: 'About' },
+]
+
 app.get('/', (req, res) => {
-  res.render('index', { message: 'EJS rocks!' })
+  res.render('index', { links: links })
 })
 
 const PORT = process.env.PORT || 8080
